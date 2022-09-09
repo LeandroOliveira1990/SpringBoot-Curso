@@ -2,8 +2,11 @@ package com.aprendendospring.course.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
-@Table(name = "Users")
+@Table(name = "tb_users")
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -16,6 +19,9 @@ public class User implements Serializable {
     private String phone;
     private String password;
 
+    @OneToMany(mappedBy = "client")
+    private List<Order> orders = new ArrayList<>();
+
     public User() {
     }
 
@@ -26,6 +32,12 @@ public class User implements Serializable {
         this.phone = phone;
         this.password = password;
     }
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+
 
     public Long getId() {
         return id;
