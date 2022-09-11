@@ -31,3 +31,4 @@ build/
 
 ### VS Code ###
 .vscode/
+course/src/main/resources/application-dev.properties
